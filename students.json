@@ -1,0 +1,38 @@
+[
+  {
+    "studentId": "2181011017",
+    "regNo": "UU18108521",
+    "name": "RANA AHMED",
+    "dateOfBirth": "10.02.2001",
+    "department": "Civil Engineering",
+    "degree": "Bachelor of Science in Civil Engineering",
+    "cgpa": "3.70",
+    "year": "2023",
+    "certNo": "22429",
+    "photo": "uploads/students/2181011017.jpg"
+  },
+  {
+    "studentId": "2181011018",
+    "regNo": "UU18108522",
+    "name": "RAHAT ISLAM",
+    "dateOfBirth": "25.08.2001",
+    "department": "Computer Science & Engineering",
+    "degree": "Bachelor of Science in CSE",
+    "cgpa": "3.45",
+    "year": "2022",
+    "certNo": "22430",
+    "photo": "uploads/students/63718627.jpg"
+  },
+  {
+    "studentId": "63718627",
+    "regNo": "63718627",
+    "name": "Habibur Rahman",
+    "dateOfBirth": "12.03.2000",
+    "department": "Computer Science & Engineering",
+    "degree": "Bachelor of Science in Computer Science & Engineering",
+    "cgpa": "3.85",
+    "year": "2023",
+    "certNo": "5734",
+    "photo": "uploads/students/63718627.jpg"
+  }
+]

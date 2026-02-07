@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>University of Asia Pacific Degree Verification</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap"
+    />
+    <style>
+      :root {
+        --uap-blue: #2f5fab;
+        --uap-dark: #06090f;
+        --uap-magenta: #c31d89;
+        --uap-purple: #8e1d91;
+        --uap-green: #2e8b57;
+        --uap-light: #f3f6fb;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", Arial, sans-serif;
+        background: linear-gradient(180deg, #eef4ff 0%, #f9fbff 100%);
+        color: #0c1320;
+      }
+
+      .top-strip {
+        background: var(--uap-dark);
+        border-top: 1px solid #1f2634;
+        border-bottom: 1px solid #1f2634;
+      }
+
+      .top-strip-inner {
+        max-width: 1700px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 58px;
+        gap: 6px;
+      }
+
+      .top-strip a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        padding: 10px 18px;
+        border-left: 1px solid #2a3445;
+        white-space: nowrap;
+      }
+
+      .top-strip a:last-child {
+        border-right: 1px solid #2a3445;
+      }
+
+      .main-header {
+        background: var(--uap-blue);
+      }
+
+      .main-header-inner {
+        max-width: 1700px;
+        margin: 0 auto;
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-width: 400px;
+      }
+
+      .brand img {
+        width: 86px;
+        height: 106px;
+        object-fit: contain;
+      }
+
+      .brand-title {
+        color: #ffffff;
+        font-size: 51px;
+        line-height: 1.03;
+        font-weight: 800;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .main-nav {
+        margin-left: auto;
+      }
+
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .main-nav a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 17px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+
+      .ranking-strip {
+        background: var(--uap-magenta);
+        color: #ffffff;
+        min-height: 68px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid #9f166e;
+      }
+
+      .ranking-track {
+        white-space: nowrap;
+        font-size: 36px;
+        font-weight: 700;
+        letter-spacing: 0.7px;
+        animation: ticker 26s linear infinite;
+      }
+
+      .ranking-track span {
+        display: inline-block;
+        padding-right: 80px;
+      }
+
+      @keyframes ticker {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .page-main {
+        background: radial-gradient(
+          circle at top right,
+          rgba(103, 94, 231, 0.28),
+          rgba(53, 115, 170, 0.25),
+          rgba(255, 255, 255, 0.95)
+        );
+        padding: 36px 0 60px;
+      }
+
+      .container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 12px;
+      }
+
+      .notice {
+        background-color: rgba(232, 244, 253, 0.96);
+        border-left: 5px solid var(--uap-purple);
+        padding: 16px 18px;
+        margin-bottom: 22px;
+        border-radius: 6px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+      }
+
+      .notice h3 {
+        color: var(--uap-purple);
+        margin-bottom: 5px;
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      .notice p {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .search-section {
+        background-color: rgba(255, 255, 255, 0.96);
+        padding: 28px 30px;
+        border-radius: 8px;
+        margin-bottom: 22px;
+        box-shadow: 0 10px 24px rgba(43, 66, 128, 0.16);
+      }
+
+      .search-section h3 {
+        color: var(--uap-purple);
+        margin-bottom: 14px;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .required {
+        color: #e31414;
+      }
+
+      .wrap-input {
+        position: relative;
+        width: 100%;
+        margin-bottom: 14px;
+      }
+
+      .symbol-input {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 46px;
+        justify-content: center;
+        color: #666;
+        pointer-events: none;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        height: 50px;
+        padding: 12px 14px 12px 46px;
+        border: 1px solid #c7cdd8;
+        border-radius: 5px;
+        font-size: 16px;
+        font-family: "Montserrat", Arial, sans-serif;
+        color: #20273a;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        border-color: var(--uap-purple);
+        box-shadow: 0 0 0 2px rgba(142, 29, 145, 0.14);
+      }
+
+      .btn-search {
+        background: linear-gradient(
+          135deg,
+          var(--uap-purple),
+          var(--uap-green)
+        );
+        color: white;
+        padding: 0 34px;
+        border: none;
+        border-radius: 5px;
+        font-size: 17px;
+        font-family: "Montserrat", Arial, sans-serif;
+        cursor: pointer;
+        font-weight: 700;
+        box-shadow: 0 6px 16px rgba(122, 48, 127, 0.28);
+        height: 46px;
+        text-transform: uppercase;
+      }
+
+      .btn-search:hover {
+        filter: brightness(0.95);
+      }
+
+      .loading {
+        text-align: center;
+        padding: 16px;
+        color: #4d5568;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .student-info {
+        margin-top: 20px;
+      }
+
+      .student-info.hidden {
+        display: none;
+      }
+
+      .info-header {
+        background: linear-gradient(90deg, #82238e, #2c876d);
+        padding: 16px;
+        border-radius: 4px 4px 0 0;
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      .info-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .info-table td {
+        padding: 13px 14px;
+        font-size: 15px;
+        border: 1px solid #b6bfd3;
+      }
+
+      .info-table td:first-child {
+        background-color: #f4f7fc;
+        font-weight: 700;
+        color: #162038;
+        width: 40%;
+      }
+
+      .info-table td:last-child {
+        background: linear-gradient(90deg, #5f63e5, #5c66df);
+        color: #000;
+      }
+
+      .student-photo {
+        width: 130px;
+        height: 130px;
+        object-fit: cover;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        background: #fff;
+        display: none;
+      }
+
+      .photo-fallback {
+        color: #2f3449;
+      }
+
+      footer {
+        background-color: #30333a;
+        color: white;
+        padding: 42px 20px 20px;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+      }
+
+      .footer-section h4 {
+        margin-bottom: 15px;
+        color: #3f95ff;
+        font-size: 18px;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 8px;
+      }
+
+      .footer-section a {
+        color: #ccd4e0;
+        text-decoration: none;
+      }
+
+      .contact-info {
+        line-height: 1.8;
+        color: #ccd4e0;
+      }
+
+      .copyright {
+        text-align: center;
+        margin-top: 26px;
+        padding-top: 16px;
+        border-top: 1px solid #525862;
+        color: #98a3b8;
+      }
+
+      @media (max-width: 1200px) {
+        .top-strip-inner {
+          overflow-x: auto;
+          justify-content: flex-start;
+        }
+
+        .brand {
+          min-width: 280px;
+        }
+
+        .brand-title {
+          font-size: 34px;
+        }
+
+        .main-nav ul {
+          gap: 18px;
+        }
+
+        .main-nav a {
+          font-size: 14px;
+        }
+
+        .ranking-track {
+          font-size: 24px;
+        }
+
+        .search-section h3 {
+          font-size: 18px;
+        }
+
+        input[type="text"] {
+          font-size: 18px;
+        }
+
+        .btn-search {
+          font-size: 16px;
+        }
+
+        .info-header {
+          font-size: 18px;
+        }
+
+        .info-table td {
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 820px) {
+        .main-header-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .main-nav {
+          margin-left: 0;
+          width: 100%;
+        }
+
+        .main-nav ul {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .notice h3 {
+          font-size: 21px;
+        }
+
+        .notice p {
+          font-size: 14px;
+        }
+
+        .search-section {
+          padding: 18px;
+        }
+
+        .search-section h3 {
+          font-size: 21px;
+        }
+
+        .btn-search {
+          width: 100%;
+        }
+
+        .info-header {
+          font-size: 20px;
+        }
+
+        .info-table td {
+          padding: 10px;
+          font-size: 14px;
+        }
+
+        .student-photo {
+          width: 95px;
+          height: 95px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-strip">
+      <div class="top-strip-inner">
+        <a href="#">Student Portal (UCAM)</a>
+        <a href="#">Vacancies</a>
+        <a href="#">CRTTC</a>
+        <a href="#">UAP@Ranking</a>
+        <a href="#">News/Notice/Upcoming Event</a>
+      </div>
+    </div>
+
+    <header class="main-header">
+      <div class="main-header-inner">
+        <div class="brand">
+          <img src="assets/uap.png" alt="UAP Logo" />
+          <div class="brand-title">
+            <div>University of</div>
+            <div>Asia Pacific</div>
+          </div>
+        </div>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Admission</a></li>
+            <li><a href="#">Academic</a></li>
+            <li><a href="#">OIA</a></li>
+            <li><a href="#">IQAC</a></li>
+            <li><a href="#">Authorities</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="ranking-strip">
+      <div class="ranking-track">
+        <span
+          >ASIA UNIVERSITY RANKINGS 2025 *** UNIVERSITY OF ASIA PACIFIC IS ON
+          TOP 2 AMONG PRIVATE UNIVERSITIES OF BANGLADESH</span
+        >
+        <span
+          >ASIA UNIVERSITY RANKINGS 2025 *** UNIVERSITY OF ASIA PACIFIC IS ON
+          TOP 2 AMONG PRIVATE UNIVERSITIES OF BANGLADESH</span
+        >
+      </div>
+    </div>
+
+    <main class="page-main">
+      <div class="container">
+        <div class="notice">
+          <h3>Official Verification Portal</h3>
+          <p>
+            This is the Only Official Website Authorized by UAP for Online
+            Certificate Verification.
+          </p>
+        </div>
+
+        <div class="search-section">
+          <h3>Student ID / Registration No <span class="required">*</span></h3>
+          <form id="searchForm" class="search-form">
+            <div class="wrap-input">
+              <input
+                type="text"
+                id="studentIdInput"
+                placeholder="Enter Student ID or Registration Number"
+                class="search-input-field"
+              />
+              <span class="symbol-input">
+                <i class="fa fa-id-card" aria-hidden="true"></i>
+              </span>
+            </div>
+            <button type="submit" class="btn-search">Search</button>
+          </form>
+        </div>
+
+        <div id="loadingMessage" class="loading" style="display: none">
+          <div style="margin: 0 auto; text-align: center">
+            <img
+              id="imgProgress"
+              src="https://i.gifer.com/ZKZg.gif"
+              style="width: 60px; height: 60px"
+              alt="Loading..."
+            />
+            <p style="margin-top: 10px">Searching for student information...</p>
+          </div>
+        </div>
+
+        <div id="studentInfo" class="student-info hidden">
+          <div class="info-header">Student Information</div>
+          <table class="info-table">
+            <tr>
+              <td>Student Photo</td>
+              <td>
+                <img
+                  id="displayPhoto"
+                  class="student-photo"
+                  alt="Student photo"
+                />
+                <span id="displayPhotoFallback" class="photo-fallback"
+                  >Not available</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Student ID</td>
+              <td id="displayStudentId">63718627</td>
+            </tr>
+            <tr>
+              <td>Registration No</td>
+              <td id="displayRegNo">63718627</td>
+            </tr>
+            <tr>
+              <td>Student Name</td>
+              <td id="displayName">Habibur Rahman</td>
+            </tr>
+            <tr>
+              <td>Department</td>
+              <td id="displayDepartment">Computer Science & Engineering</td>
+            </tr>
+            <tr>
+              <td>Degree Awarded</td>
+              <td id="displayDegree">
+                Bachelor of Science in Computer Science & Engineering
+              </td>
+            </tr>
+            <tr>
+              <td>CGPA</td>
+              <td id="displayCGPA">3.85</td>
+            </tr>
+            <tr>
+              <td>Passing Year</td>
+              <td id="displayYear">2023</td>
+            </tr>
+            <tr>
+              <td>Certificate No</td>
+              <td id="displayCertNo">5734</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Contact Information</h4>
+          <div class="contact-info">
+            <p><strong>University of Asia Pacific</strong></p>
+            <p>74/A, Green Road, Farmgate</p>
+            <p>Dhaka-1205, Bangladesh</p>
+            <p>PABX: +8802-41010626-9</p>
+            <p>FAX: +8802-41010630</p>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#ucam">Automation (UCAM) Login</a></li>
+            <li><a href="#library">Library OPAC</a></li>
+            <li><a href="#faculty">Faculty Members</a></li>
+            <li><a href="#webmail">UAP Webmail</a></li>
+            <li><a href="#calendar">Academic Calendar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#journals">Journals</a></li>
+            <li><a href="#publications">Papers & Publications</a></li>
+            <li><a href="#gallery">Picture Gallery</a></li>
+            <li><a href="#schedule">Class Schedule</a></li>
+            <li><a href="#support">For Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>More</h4>
+          <ul>
+            <li><a href="#convocation">11th Convocation</a></li>
+            <li><a href="#newsletter">UAP News Letter</a></li>
+            <li><a href="#media">UAP Media Release</a></li>
+            <li><a href="#grievance">Grievance Redressal</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>© All Rights Reserved @ University of Asia Pacific</p>
+      </div>
+    </footer>
+
+    <script src="js/verify.js"></script>
+  </body>
+</html>
